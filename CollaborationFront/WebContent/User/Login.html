@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+
+#formLogin{padding: 15px; min-width:300px;}
+.boxbg{
+    
+margin-left:auto;
+    
+margin-right:auto;
+    
+margin-top:20px;
+    
+padding:1px 20px 20px 20px;
+    
+width:400px;
+    
+border-radius:5px;
+    
+background-color:#333333;/*#53AEFF;*/
+    
+box-shadow:1px 1px 5px #333333;
+}
+
+
+
+label{
+    
+color:#fff;
+    
+text-shadow:1px 1px 1px #000;
+}
+
+
+
+h1{
+    padding-bottom:10px;
+    
+border-bottom:1px solid #ccc;
+}
+
+
+
+h2{
+    color:#FFF;
+    text-shadow:2px 1px 3px #000;
+}
+
+</style>
+
+</head>
+<body  ng-controller="UserController As uc">								
+  <div class="boxbg">
+        
+        <div ng-show='ctrl.user.errorMessage'>
+		<div class="alert alert-danger fade in">
+			{{message}}</div></div>
+        
+  <h2><strong>Login</strong></h2>
+ <hr/>
+   
+     
+<form name="myForm"  method="post" ng-submit="uc.login()">
+   
+   <div class="row" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+<div id="divuser" class="form-group has-feedback">
+               
+ <label for="username">Email ID :</label>
+               
+ <div class="input-group">
+                    
+<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                    
+<input type="text" placeholder="Enter Your Email" class="form-control" name="email"  id="email" ng-model="uc.user.email" />
+                </div>
+                
+<span id="useroksts" class="glyphicon glyphicon-ok  form-control-feedback" aria-hidden="true"></span>
+                
+<span id="usererrsts" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+           
+ </div>   
+   
+         
+            
+<div id="divpass" class="form-group has-feedback">
+               
+ <label for="password">Password :</label>
+               
+ <div class="input-group">
+                   
+ <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                    
+<input type="password" class="form-control" name="password"  placeholder="Enter Your Password" id="password" 
+aria-describedby="inputGroupSuccess1Status" ng-model="uc.user.password"/>
+  </div>
+               
+ <span id="passoksts" class="glyphicon glyphicon-ok  form-control-feedback" aria-hidden="true"></span>
+               
+ <span id="passerrsts" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>  </div>
+                            
+<button type="submit" name="submit" ng-disabled="myForm.$invalid" class="btn btn-primary" value="Login">Sumit</button>
+   </div>
+   
+  </form>
+    </div>	
+
+</body>
+
+</html>

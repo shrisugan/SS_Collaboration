@@ -1,0 +1,30 @@
+<div class="container" ng-controller="JobController as jc">
+		
+	<div class="form-group"></div>
+
+  search for job
+
+  <p><input type="text" ng-model="sear_text"></p>
+
+
+	<div ng-repeat="job in jc.jobs | filter: sear_text">
+
+		<fieldset>
+			<legend></legend>
+
+			<p>ID: {{job.jobid}} &nbsp; &nbsp;&nbsp; 
+			<a href = "#"  ng-click="jc.getJobDetails(job.jobid)"> Get job details
+			</a>	
+			    &nbsp; &nbsp;&nbsp;  
+			    <button type="button"  name="submit" value="applyjob" ng-click="jc.applyJobs(viewJob)"
+			       class="btn btn-warning btn-sm">Apply for job</button>
+			  </p>
+
+			<p>title:{{job.title}}</p>
+
+			<p> Qualification:{{job.qualification}}</p>
+			<p> Skills:{{job.skills}}</p>
+		</fieldset>
+	</div>
+
+</div>

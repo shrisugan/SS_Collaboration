@@ -1,0 +1,249 @@
+<html>
+<head>
+<title>My Webpage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+.username.ng-valid {
+	background-color: #57BC90;
+}
+
+.username.ng-dirty.ng-invalid-required {
+	background-color: #EC576B;
+}
+
+.username.ng-dirty.ng-invalid-minlength {
+	background-color: #E9C904;
+}
+
+.email.ng-valid {
+	background-color: #57BC90;
+}
+
+.email.ng-dirty.ng-invalid-required {
+	background-color: #EC576B;
+}
+
+.email.ng-dirty.ng-invalid-email {
+	background-color: #E9C904;
+}
+
+.password.ng-valid {
+	background-color: #57BC90;
+}
+
+.password.ng-dirty.ng-invalid-required {
+	background-color: #EC576B;
+}
+
+.password.ng-dirty.ng-invalid-email {
+	background-color: #E9C904;
+}
+
+.contact.ng-valid {
+	background-color: #57BC90;
+}
+
+.contact.ng-dirty.ng-invalid-required {
+	background-color: #EC576B;
+}
+
+.contact.ng-dirty.ng-invalid-email {
+	background-color: #E9C904;
+}
+
+.address.ng-valid {
+	background-color: #57BC90;
+}
+
+.address.ng-dirty.ng-invalid-required {
+	background-color: #EC576B;
+}
+
+.address.ng-dirty.ng-invalid-email {
+	background-color: #E9C904;
+}
+
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="app.css">
+
+</head>
+<style>
+#success_message {
+	display: none;
+}
+</style>
+
+<body>
+
+	<div class="container">
+
+		<form class="well form-horizontal" ng-submit="ctrl.submit()"
+			name="myForm" action=" " method="post" id="contact_form">
+			<input type="hidden" ng-model="ctrl.user.id" />
+			<fieldset>
+
+				<!-- Form Name -->
+				<legend>
+					<center>
+						<h2>
+							<b>Registration Form</b>
+						</h2>
+					</center>
+				</legend>
+				<br>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+
+					<label class="col-md-4 control-label" for="username">User
+						Name</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input type="text"
+								id="username" name="username" ng-model="ctrl.user.username"
+								placeholder="User Name" class="username form-control input-sm"
+								required ng-minlength="3" />
+							<div class="has-error" ng-show="myForm.$dirty">
+								<span ng-show="myForm.username.$error.required"></span> <span
+									ng-show="myForm.username.$error.minlength"></span> <span
+									ng-show="myForm.username.$invalid"> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Password</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-option-horizontal"></i></span> <input
+								type="password" id="password" name="password"
+								placeholder="Password" ng-model="ctrl.user.password"
+								required="required" ng-minlength="4" / class="password form-control input-sm" required />
+								<div class="has-error" ng-show="myForm.$dirty">
+								<span ng-show="myForm.password.$error.required"></span> <span
+									ng-show="myForm.password.$invalid"> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Reg.Category</label>
+					<div class="col-md-4 selectContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-list"></i></span> <select name="role"
+								ng-model="ctrl.user.role" class="form-control selectpicker">
+								<option value="">Select your role</option>
+								<option value="student">Student</option>
+								<option value="employee">Employee</option>
+								<option value="alumini">Alumini</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">E-Mail</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-envelope"></i></span> <input type="email"
+								ng-model="ctrl.user.email" id="email"
+								class="email form-control input-sm"
+								placeholder="Enter your Email" required />
+							<div class="has-error" ng-show="myForm.$dirty">
+								<span ng-show="myForm.email.$error.required"></span> <span
+									ng-show="myForm.email.$invalid"> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Contact</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-earphone"></i></span> <input name="contact"
+								id="contact" ng-model="ctrl.user.contact" placeholder="(639)"
+								class="contact form-control input-sm" type="text" required />
+								<div class="has-error" ng-show="myForm.$dirty">
+								<span ng-show="myForm.contact.$error.required"></span> <span
+									ng-show="myForm.contact.$invalid"> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-md-4 control-label">Address</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-tasks"></i></span> <input id="address"
+								name="address" ng-model="ctrl.user.address"
+								placeholder="Address" type="text" class="address form-control input-sm" type="text" required />
+								<div class="has-error" ng-show="myForm.$dirty">
+								<span ng-show="myForm.address.$error.required"></span> <span
+									ng-show="myForm.address.$invalid"> </span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Select Basic -->
+
+				<!-- Success message -->
+				<div class="alert alert-success" role="alert" id="success_message">
+					Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<br>
+						<button type="submit" value="{{!ctrl.user.id ? 'Add' : 'Update'}}"
+							class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+							REGISTER<span class="glyphicon glyphicon-send"></span>
+						</button>
+						<button type="submit" class="btn btn-warning">
+							RESET FORM<span class="glyphicon glyphicon-repeat"></span>
+						</button>
+					</div>
+				</div>
+
+				<!-- <div class="row">
+                          <div class="form-actions floatRight">
+                              <input type="submit"  value="{{!ctrl.user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid">
+                              <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button>
+                          </div>
+                          </div>
+ -->
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+
+
+</html>

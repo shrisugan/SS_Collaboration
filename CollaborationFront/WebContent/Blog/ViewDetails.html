@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+    .pb-cmnt-container {
+        font-family: Lato;
+        margin-top: 30px;
+    }
+
+    .pb-cmnt-textarea {
+       
+        
+        height: 80px;
+        width: 40%;
+        border: 2px solid cyan;
+    }
+    body{background-color: #FbFbFb;
+            background-image: linear-gradient(to bottom, #FbFbFb, #f3f3f3);}
+.get-in-touch {
+position: relative;
+margin: 0 auto;
+padding: 30px;
+border-radius: 2px;
+background: rgb(255, 255, 255) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAGCAYAAACFIR03AAAAV0lEQVR42tXOMRWAQAwE0RWFDRTg5d47Jeg4Q9gI06RbqlwKil/P6LpXbDCf85AxEBtMGjKG/jyPUHUerfP4nEeoOo/Wedj5pOo8Wudh55Oq82idh51PLxpvled7kLAXAAAAAElFTkSuQmCC) repeat-x;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.get-in-touch input[type=text],.get-in-touch input[type=email],.get-in-touch input[type=password], .get-in-touch textarea {
+background: rgb(235, 241, 245);
+color: rgb(36, 39, 41);
+}
+.get-in-touch  input:focus, .get-in-touch  textarea:focus {
+outline: 0;
+background: #FFF;
+}
+    
+</style>
+</head>
+<body>
+ <a class="btn btn-info" href="#!blog" ng-show="currentUser.username" ><button type="button">
+  Create New Blog</button></a>
+
+<!-- <div class="col-sm-3 col-sm-offset-1" style="width:600px;heigth:600px;border:5px solid purple; float: left; margin-left: 1.5em;" >
+ -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <!-- <form action="#" method="post" class="form-horizontal"> -->
+            <div class="get-in-touch">
+                <h3 class="text-center">{{blog.title}}</h3>
+                <hr/>
+      
+
+<h5>Created by : <b>{{blog.username}}</b> </h5>
+ <h5>Created On : <b>{{blog.timeStamp}}</b></h5>
+<h4>{{blog.description}}</h4>
+  
+ 
+<!-- <div class="container pb-cmnt-container">
+ <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+</div> -->
+<!-- <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-warning pull-right">Comment<span class="glyphicon glyphicon-send"></span></button>
+       </div> </div> -->
+
+						<form ng-submit="bc.createBlogComment(bc.blogcomment)">
+							<div class="form-group">
+								<textarea placeholder="Enter YouR ThoughT Here.."
+									class="form-control" ng-model="bc.blogcomment.bcomment"></textarea>
+
+								<button type="submit" class="btn btn-lg btn-info">Share
+									Ur views</button>
+							</div>
+						</form>
+				 </div>
+					<!-- </form>  -->
+ 
+
+
+</div></div></div>
+
+<div ng-repeat="bcv in bcomment">
+
+<h3>UserName: <span ng-bind="bcv.username"></span></h3>
+
+<!-- <td>{{cv.userName}}</td> -->
+<h5>Comment: <span ng-bind="bcv.bcomment"></span></h5>
+<hr style="clear: both;" />
+</div>
+
+
+</body>
+</html>

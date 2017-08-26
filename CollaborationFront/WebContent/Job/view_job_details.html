@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.modal-content {
+	position: relative;
+	background-color: #ffffff;
+	border: 1px solid #999999;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 0;
+	outline: none;
+	-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	background-clip: padding-box;
+}
+
+.modal-header {
+	border-bottom: 1px solid #48a4ac;
+	background: #61bdc5;
+	min-height: 16.4286px;
+	padding: 10px 15px;
+}
+
+.close {
+	float: right;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
+	filter: alpha(opacity = 20);
+}
+
+.modal-body {
+	position: relative;
+	padding: 20px;
+}
+
+.modal-footer {
+	padding: 19px 20px 20px;
+	margin-top: 0;
+	text-align: right;
+	border-top: 1px solid #e5e5e5;
+}
+</style>
+</head>
+<body>
+	<button type="button">
+		<span style="float: center;"> <a class="btn btn-info"
+			href="#!job" ng-show="currentUser.role=='admin'">Create New Job</a></span>
+	</button>
+
+	<div class="col-sm-3 col-sm-offset-1"
+		style="width: 600px; heigth: 700px; border: 5px solid teal; float: left; margin-left: 1.5em;">
+
+		<h3>{{viewJob.title}}</h3>
+		<h5>
+			Created On : <b>{{viewJob.timeStamp}}</b>
+		</h5>
+		<h3>Status:{{viewJob.status}}</h3>
+
+		<h3>{{viewJob.qualification}}</h3>
+		<h3>{{viewJob.skills}}</h3>
+		<!-- <button type="button" name="submit"  value="{{!jc.viewJob.id? 'Apply' : 'Applied'}}" class="btn btn-success btn-icon" ng-click="jc.applyJobs(viewJob)" ><i class="fa fa-check"></i> Apply</button>
+ -->
+		<input type="submit"
+			value="{{!jc.viewJob.jobid? 'Apply' : 'Applied'}}"
+			class="btn btn-primary btn-sm" ng-click="jc.applyJobs(viewJob)"
+			ng-disabled="myForm.$invalid">
+	</div>
+
+
+
+	<!-- <div class="container">
+	<div class="row">
+	<div class="modal-content">
+
+    					<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+							<h4 class="modal-title">JOB Apply</h4>
+						</div>
+
+						<form action="" method="post">
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="userEmail">Title</label>
+									<input type="text" class="form-control" required="" name="userEmail" value="{{viewJob.title}}">
+									
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="password">Qualification</label>
+											<input type="text" class="form-control" required="" name="qualification" value="{{viewJob.qualification}}">
+										
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Skills</label>
+											<input type="text" class="form-control" required="" name="skills" value="{{viewJob.skills}}">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<input type="hidden" name="isEmpty" value="">Created On :{{viewJob.timeStamp}}
+								<button type="input" name="submit" value="applyjob" class="btn btn-success btn-icon" ng-click="jc.applyJobs(job)" ><i class="fa fa-check"></i> Apply</button>
+								<button type="button" class="btn btn-default btn-icon" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
+							</div>
+						</form>
+
+					</div>
+	</div>
+</div> -->
+</body>
+</html>

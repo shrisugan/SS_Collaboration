@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="User/UserController.js"></script>
+<script type="text/javascript" src="User/UserService.js"></script>
+<script type="text/javascript" src="Blog/BlogController.js"></script>
+<script type="text/javascript" src="Blog/BlogService.js"></script>
+<script type="text/javascript" src="BlogComment/BlogCommentService.js"></script>
+<script type="text/javascript" src="Job/JobController.js"></script>
+<script type="text/javascript" src="Job/JobService.js"></script>
+<script type="text/javascript" src="Forum/ForumController.js"></script>
+<script type="text/javascript" src="Forum/ForumService.js"></script>
+<script type="text/javascript" src="Chat/ChatController.js"></script>
+<script type="text/javascript" src="Chat/ChatService.js"></script>
+<!-- <script type="text/javascript" src="Friend/FriendController.js"></script>
+ --><script type="text/javascript" src="Friend/FriendService.js"></script>
+ 
+  <script src="js/sockjs.js"></script>
+    <script src="js/stomp.js"></script>
+ 
+ 
+</head>
+<body ng-app="myApp" ng-controller="UserController as uc">
+<br>
+<br>
+
+
+<p ng-hide="currentUser.username"> <br><br><br></p>
+
+<h2  ng-show="currentUser.username">Welcome {{currentUser.username}}, You Are Here As a {{currentUser.role}}</h2>
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+
+		<div class="container">
+
+			<div class="navbar-header">
+
+				<a class="navbar-brand" href="#">COLLEGE</a>
+
+			</div>
+
+			<div id="navbar" class="navbar-collapse collapse">
+
+				<ul class="nav navbar-nav">
+
+					<li class="active"><a href="#/!">Home</a></li>
+
+
+					<li class="dropdown"><a data-toggle="dropdown" href="#">Blog<span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#!viewblog">View</a></li>
+							<li><a href="#!blog">Add</a></li>
+						</ul></li>
+
+					<li class="dropdown"><a data-toggle="dropdown" href="#">Friends<span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#!find">Add Friend</a></li>
+							
+						</ul></li>
+					<li class="dropdown"><a data-toggle="dropdown" href="#">Jobs<span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#!search_job">Search Job</a></li>
+							<li><a href="#!job" ng-show="currentUser.role == 'admin'">Post Job</a></li>
+							<li><a href="#!view_job_details">View Job</a></li>
+						</ul></li>
+						<li class="dropdown"><a data-toggle="dropdown" href="#">Forums<span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#!viewforum">View</a></li>
+							<li><a href="#!forum">Add</a></li>
+						</ul></li>
+					<li  class="dropdown"><a data-toggle="dropdown" href="#">Chat Forums<span
+							class="caret"></span></a>
+							<ul class="dropdown-menu">	
+							<li><a href="#!chat">Group Chat</a></li>
+							</ul></li> 
+				</ul>
+
+         <ul class="nav navbar-nav navbar-right">
+
+					<li><a href="#!login" ng-hide="currentUser.username"><span
+							class="glyphicon glyphicon-log-in"></span>Sign In</a></li>
+					<li><a href="#!register" ng-hide="currentUser.username"><span
+							class="glyphicon glyphicon-user"></span>Register</a></li>
+
+					<li><a href="#" ng-click="uc.logout()" ng-show="currentUser.username">
+					<span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+
+				</ul>
+
+
+			</div>
+			<!--/.navbar-collapse -->
+
+		</div>
+
+	</nav>
+	 <br>
+	<br>
+	<br>
+	<br>
+	 <!-- <h2>{{5+5}}</h2>
+	 -->
+	
+	
+	
+	<div ng-view></div>
+</body>
+
+
+</html>

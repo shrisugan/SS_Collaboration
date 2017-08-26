@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+
+*{transition:all .5s ease;-moz-transition:all .5s ease;-webkit-transition:all .5s ease}
+		.three{width:33.3333%;float:left;text-align: center;}
+		.three img{width:100%;}
+		.image-wrap{width:100%; float:left;height:243px;overflow:hidden;position:relative;}
+		.absolut-onhover h5{margin:0px;padding:10px 0px;color:#ff6600;font-size:22px; line-height:30px;text-transform:capitalize;}
+		.absolut-onhover {
+    background: rgba(0,0,0,.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 80%;
+    left: 0;    padding:0 0px;
+    text-align: center;
+}
+.image-wrap  .vertical-align {
+    top:45px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+.image-wrap:hover  .absolut-onhover{top:0px;}
+.image-wrap:hover  .vertical-align{top:50%;}
+</style>
+</head>
+<body>
+<div>
+<div class="container" ng-controller="BlogController as bcc" >
+<h3>Blogs</h3>
+<div class="row" ng-init="bcc.notAcceptedBlogs()">
+
+<div  class="three" ng-repeat="bna in bcc.blogsNotAccepted">
+
+<div class="image-wrap">	
+	<img src="http://www.onpaysolutions.com/hs-fs/hub/146309/file-2041064388-jpg/Blog.jpg?t=1500498276295"/>
+	<div class="absolut-onhover">
+	<div class="vertical-align">	
+<h3>Title:{{bna.title}} </h3>
+<h6>Authored By:{{bna.username}} </h6><h6>Created On:<span ng-bind="bna.timeStamp"></span></h6> 
+<h5>Status:{{bna.status}} </h5>
+<h5>Desc:{{bna.description}}</h5>
+<br>
+<a href="" ng-click="bcc.adminGet(bna)" class="btn btn-info">Read More</a>
+
+<hr>
+</div>
+</div>
+</div></div></div></div>
+
+<div class="container"  ng-controller="ForumController as fcc">
+<h3>Forums</h3>
+<div class="row" ng-init="fcc.notAcceptedForums()">
+<div class="three" ng-repeat="for in fcc.forumsNotAccepted" >
+<div class="image-wrap">	
+	<img src="https://schmalohr.files.wordpress.com/2011/12/istock_000010646616xsmall.jpg"/>
+	<div class="absolut-onhover">
+    <div class="vertical-align">
+    
+<h3><span ng-bind="for.forumname"></span></h3> <h6>Created On:<span ng-bind="for.timeStamp"></span></h6>
+<h5>Status: {{for.status}}</h5>
+<h5><span ng-bind="for.forumcontent" | limitTo : '5'></span></h5>
+<a href="" ng-click="fcc.adminGet(for)" class="btn btn-info">Read More</a>
+
+<hr>
+</div>
+</div>
+</div></div></div></div>
+<div ng-controller="JobController as jc">
+<p>Jobs Applied By Users</p>
+<div ng-init="jc.BringAllAppJobs()">
+     <div ng-repeat="jo in jc.appjobs"> 
+      
+ <h3> Job Title:{{jo.companyname}} </h3>
+<h5>Applied By:{{jo.username}} </h5><h5>Send On: <span ng-bind="jo.timeStamp"></span> </h5> 
+
+       
+        </div>
+        </div>
+        
+</div>
+</body>
+</html>

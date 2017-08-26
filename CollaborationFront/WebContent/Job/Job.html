@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="container">
+			<h1 class="well">Job Form</h1>
+			<div class="col-lg-12 well">
+				<div class="row">
+					<form ng-submit="jc.submit()">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label>Job Title</label> <input type="text"
+									placeholder="Enter Job Title" class="form-control"
+									ng-model="jc.job.title" required />
+							</div>
+
+							<div class="form-group">
+								<label>Company Profile</label>
+								<textarea placeholder="Enter Company Profile" rows="3"
+									class="form-control" ng-model="jc.job.companyname" required></textarea>
+							</div>
+
+							<div class="form-group">
+								<label>Status</label> <input type="text"
+									placeholder="Enter status" class="form-control"
+									ng-model="jc.job.status" required />
+							</div>
+
+							<div class="form-group">
+								<label>Skills</label> <input type="text"
+									placeholder="Enter skills" class="form-control"
+									ng-model="jc.job.skills" required />
+							</div>
+							<div class="form-group">
+								<label>Qualification</label> <input type="text"
+									placeholder="Enter qualification" class="form-control"
+									ng-model="jc.job.qualification" required />
+							</div>
+
+
+							<button type="submit" class="btn btn-lg btn-success">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

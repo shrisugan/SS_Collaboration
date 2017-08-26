@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+}
+.modal-header {
+  border-bottom: 1px solid #48a4ac;
+  background: #61bdc5;
+  min-height: 16.4286px;
+  padding: 10px 15px;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+.modal-body {
+  position: relative;
+  padding: 20px;
+}
+.modal-footer {
+  padding: 19px 20px 20px;
+  margin-top: 0;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+</style>
+</head>
+<body>
+<button type="button"><span style="float: center;">
+   <a class="btn btn-info" href="#!forum" ng-show="currentUser.username">Create New Forum</a></span></button>
+  <!--  <div class="col-sm-3 col-sm-offset-1" style="width:300px;heigth:500px;border:5px solid grey; float: left; margin-left: 1.5em;" >
+ 
+   <h3>{{viewForums.forumname}}</h3>
+<h5>Created by : <b>{{viewForums.username}}</b> </h5>
+ <h5>Created On : <b>{{viewForums.timeStamp}}</b></h5>
+<h4>{{viewForums.forumcontent}}</h4>
+
+<button type="button" ng-click="fcc.accept(viewForums)">Approve</button>  
+<button type="button" ng-click="fcc.rejectForum(viewForums)">Reject</button> 
+</div>-->
+
+ <div class="container">
+	<div class="row">
+	<div class="modal-content">
+
+    					<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+							<h4 class="modal-title">Forum Details</h4>
+						</div>
+
+						<form action="" method="post">
+							<div class="modal-body">
+								<div class="form-group">
+									<label>Forum Title</label>
+									<input type="text" class="form-control" required="" name="forumname" value="{{viewForums.forumname}}">
+									
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Created By:</label>
+											<input type="text" class="form-control" required="" name="username" value="{{viewForums.username}}">
+										
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>Description</label>
+											<input type="text" class="form-control" required="" name="skills" value="{{viewForums.forumcontent}}">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<input type="hidden" name="isEmpty" value="">Created On :{{viewForums.timeStamp}}
+								<button type="input" ng-click="fcc.accept(viewForums)" name="submit" value="approve" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Approve</button>
+								<button type="button" ng-click="fcc.rejectForum(viewForums)" class="btn btn-default btn-icon" data-dismiss="modal"><i class="fa fa-times-circle"></i> Reject</button>
+							</div>
+						</form>
+
+					</div>
+	</div>
+</div>
+</body>
+</html>
